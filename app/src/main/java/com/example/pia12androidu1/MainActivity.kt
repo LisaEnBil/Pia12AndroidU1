@@ -18,23 +18,18 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        var changingText = findViewById<TextView>(R.id.showText)
+        var changingText = getString(R.string.changing_text)
+        var textView = findViewById<TextView>(R.id.showText)
 
         var changeTextButton = findViewById<Button>(R.id.changeTextButton)
 
         changeTextButton.setOnClickListener {
-            changingText.text = "Good bye"
+            if  (changingText == "Good bye") {
+                changingText = "Welcome"
+            } else {
+                changingText = "Good bye"
+            }
+            textView.text = changingText
         }
     }
 }
-
-
-
-
-//var minText =  findViewById<TextView>(R.id.fancyText)
-//minText.text = "Banan"
-
-//var minKnapp = findViewById<Button>(R.id.button)
-//minKnapp.setOnClickListener {
- //   minText.text = "Apelsin"
-//}
